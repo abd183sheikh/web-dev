@@ -1,0 +1,109 @@
+<!-- update-sport.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Sport - Sports Buddy</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Update Sport</h1>
+    <form id="updateForm">
+      <label for="name">Sport Name:</label>
+      <input type="text" id="name" name="name" required><br>
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required><br>
+      <label for="area">Area:</label>
+      <input type="text" id="area" name="area" required><br>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+  <script>
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+  // Get sport details from query parameters
+  var params = new URLSearchParams(window.location.search);
+  var name = params.get('name');
+  var city = params.get('city');
+  var area = params.get('area');
+
+  // Pre-fill form fields with current sport details
+  document.getElementById('name').value = name;
+  document.getElementById('city').value = city;
+  document.getElementById('area').value = area;
+
+  // Form submission handler
+  document.getElementById('updateForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get updated sport details
+    var updatedName = document.getElementById('name').value;
+    var updatedCity = document.getElementById('city').value;
+    var updatedArea = document.getElementById('area').value;
+
+    // Example: Send updated details to server using AJAX
+    // Replace this with your actual update logic
+    alert('Sport details updated successfully.');
+
+    // Redirect back to user management page
+    window.location.href = 'user-management.html';
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!-- admin-management.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Management - Sports Buddy</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* styles.css */
+html{
+  background-color: rgb(175, 169, 169);
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sport-card {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid rgb(12, 12, 12);
+  border-radius: 5px;
+}
+
+.sport-card img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.details {
+  flex: 1;
+}
+
+.details h2 {
+  margin-top: 0;
+}
+
+.details p {
+  margin: 5px 0;
+}
+
+.update-btn,
+.delete-btn {
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.update-btn:hover,
+.delete-btn:hover {
+  background-color: #0056b3;
+}
+
+.add-sport-btn {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-sport-btn:hover {
+  background-color: #218838;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Management - Sports</h1>
+    <button class="add-sport-btn" onclick="location.href='addsports.html';">Add Sport</button>
+    <div class="sport-card">
+      <img src="cricket.jpg" alt="Sport 1">
+      <div class="details">
+        <h2>Cricket</h2>
+        <p>City: Bengaluru</p>
+        <p>Area: MG Road</p>
+        <button class="update-btn">Update</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+    <div class="sport-card">
+      <img src="football.jpg" alt="Sport 2">
+      <div class="details">
+        <h2>Foot Ball</h2>
+        <p>City: Mumbai</p>
+        <p>Area: Bandra</p>
+        <button class="update-btn">Update</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+</div>
+<div class="sport-card">
+      <img src="handball.jpg" alt="Sport 2">
+      <div class="details">
+        <h2>Hand Ball</h2>
+        <p>City: Bengaluru</p>
+        <p>Area: Kanteerava Studio</p>
+        <button class="update-btn">Update</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+
+<div class="sport-card">
+      <img src="basketball.jpg" alt="Sport 2">
+      <div class="details">
+        <h2>Basket Ball</h2>
+        <p>City: Bengaluru</p>
+        <p>Area: BM Road</p>
+        <button class="update-btn">Update</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+
+    </div>
+    <!-- Repeat the above structure for other sports -->
+  </div>
+ <script>
+// script.js
+document.querySelectorAll('.delete-btn').forEach(function(button) {
+  button.addEventListener('click', function() {
+    var card = this.closest('.sport-card');
+alert("Deleted");
+    card.remove();
+  });
+});
+
+document.querySelectorAll('.update-btn').forEach(function(button) {
+  button.addEventListener('click', function() {
+    var card = this.closest('.sport-card');
+    var name = card.querySelector('h2').innerText;
+    var city = card.querySelector('p:nth-child(2)').innerText.split(': ')[1];
+    var area = card.querySelector('p:nth-child(3)').innerText.split(': ')[1];
+
+    // Example: Redirect to update page with query parameters for editing
+    window.location.href = 'adminupdate-sport.html?name=' + encodeURIComponent(name) + '&city=' + encodeURIComponent(city) + '&area=' + encodeURIComponent(area);
+  });
+});
+</script>
+
+</body>
+</html>
