@@ -1,4 +1,1 @@
-1.Admin username: admin 
-2.password: admin 
-3.User username: 1234567890 
-4.password: password
+1.Admin username: admin    password: admin  ||  User username: 1234567890    password: password
